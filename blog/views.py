@@ -12,5 +12,5 @@ def post_list(request):
     #exibindo posts no blog, por ordem de publicação por date
     # published_date_lte fica dando erro: Cannot resolve keyword 'published_date' into field
     # porém, publish_date__lte tudo funciona corretamente
-    posts = Post.objects.filter(publish_date__lte=timezone.now()).order_by('publish_date')
+    posts = Post.objects.filter(publish_date__lte=timezone.now()).order_by('-publish_date')
     return render(request, 'blog/post_list.html', { 'posts' : posts })
